@@ -2,10 +2,13 @@ import React, {useState,useEffect} from 'react';
 import{doPost} from './utils/network'
 import Login from "./pages/login/Login"
 import Home from "./pages/home/Home"
+import { useHistory } from "react-router-dom";
 
 
 const  App = () => {
 
+  const url_path = "/materi-pelajaran"; 
+  let history = useHistory();
   const [user, setUser] = useState(null)
   const [dataMapel, setDataMapel] = useState([])
   const [errors, setErrors] = useState([])
@@ -33,6 +36,7 @@ const  App = () => {
 
   const doLogout = () =>{  
       setUser(null)
+      history.push(url_path);
   }    
 
   
